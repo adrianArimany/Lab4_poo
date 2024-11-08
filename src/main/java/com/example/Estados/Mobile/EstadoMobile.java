@@ -2,7 +2,7 @@ package com.example.Estados.Mobile;
 
 import com.example.Estados.Estado;
 
-public class EstadoMobile extends Estado {
+public class EstadoMobile extends Estado implements IMobile {
     
     /**
      * Generates a string of the menu options for the mobile state.
@@ -27,5 +27,30 @@ public class EstadoMobile extends Estado {
     public Estado transition(int action) {
         return null;
         
+    }
+    @Override
+    public String llamarContacto() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'llamarContacto'");
+    }
+    @Override
+    public String mostrarListaContactos() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mostrarListaContactos'");
+    }
+    @Override
+    public String terminarLlamada() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'terminarLlamada'");
+    }
+    @Override
+    public String cambiarAuricualares() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'cambiarAuricualares'");
+    }
+    @Override
+    public String epezarLlamada() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'epezarLlamada'");
     }
 }
