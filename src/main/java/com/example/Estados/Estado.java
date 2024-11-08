@@ -1,7 +1,7 @@
 package com.example.Estados;
 
 public abstract class Estado {
-    public String showMenu();
-    public Estado transition(int action);
+    public abstract String showMenu();
+    public abstract Estado transition(int action);
     
 }
