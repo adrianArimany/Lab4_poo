@@ -1,18 +1,15 @@
 package com.example.Estados.PersonalAudio;
 import com.example.Estados.Estado;
 
-public class EstadoPersonalAudio extends Estado {
+public class EstadoPersonalAudio extends Estado implements IPersonalAudio{
 
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();
-        menu.append("1. Connect Telephone\n");
-        menu.append("2. Disconnect Telephone\n");
-        menu.append("3. Show Telephone Contacts\n");
-        menu.append("4. Call Contact\n");
-        menu.append("5. End Call\n");
-        menu.append("6. Switch Speakers\n");
-        menu.append("7. Switch Headphones\n");
+        menu.append("1. Mode List\n");
+        menu.append("2. Move up song\n");
+        menu.append("3. Move down song\n");
+        menu.append("4. Listen to Song\n");
         menu.append("0. GOTO MENU\n");
         
         return menu.toString();
@@ -23,5 +20,30 @@ public class EstadoPersonalAudio extends Estado {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'transition'");
     }
+
+    @Override
+    public String typeMode() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'typeMode'");
+    }
+
+    @Override
+    public String movoSongUp() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'movoSongUp'");
+    }
+
+    @Override
+    public String moveSongDown() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'moveSongDown'");
+    }
+
+    @Override
+    public String escucharSong() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'escucharSong'");
+    }          
+    
     
 }
