@@ -1,6 +1,7 @@
 package com.example.Estados.Mobile;
 
 import com.example.Estados.Estado;
+import com.example.Estados.MenuPrincipal.MenuPrincipal;
 
 public class EstadoMobile extends Estado implements IMobile {
     
@@ -25,7 +26,21 @@ public class EstadoMobile extends Estado implements IMobile {
     }
     @Override
     public Estado transition(int action) {
-        return null;
+        switch (action) {
+            case 1:
+                // Connect Telephone
+                return this;
+            case 2:
+                // Disconnect Telephone
+                return this;
+            case 3: 
+                // Show Telephone Contacts
+                return this;
+            case 0:
+                return new MenuPrincipal();
+            default:
+                return this;
+        }
         
     }
     @Override
@@ -53,4 +68,5 @@ public class EstadoMobile extends Estado implements IMobile {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'epezarLlamada'");
     }
+
 }

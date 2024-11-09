@@ -1,8 +1,12 @@
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/App.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Productivity/EstadoProductivity.java
+/home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/MenuPrincipal/MenuPrincipal.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/PersonalAudio/EstadoPersonalAudio.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/ManejadorDeEstados.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Radio/EstadoRadio.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Mobile/EstadoMobile.java
+/home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Productivity/IProductivity.java
+/home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/PersonalAudio/IPersonalAudio.java
+/home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Radio/IRadio.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Mobile/IMobile.java
 /home/richard_camus/Documents/UVG/Year_1/POO/LAB4/lab4poo/src/main/java/com/example/Estados/Estado.java
