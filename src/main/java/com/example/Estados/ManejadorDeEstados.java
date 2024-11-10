@@ -4,7 +4,7 @@ import com.example.Estados.MenuPrincipal.MenuPrincipal;
 
 public class ManejadorDeEstados {
     Estado currEstado;
-    boolean systemOn = true;
+    boolean systemOn = false;
     
     public ManejadorDeEstados() {
         this.currEstado = new MenuPrincipal();
@@ -27,7 +27,7 @@ public class ManejadorDeEstados {
     }
 
     public void systemOff(){
-        this.currEstado = new MenuPrincipal();
+        systemOn = false;
     }
 
     public boolean isSystemOn() {

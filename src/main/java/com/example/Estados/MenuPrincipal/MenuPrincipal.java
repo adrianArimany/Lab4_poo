@@ -15,7 +15,7 @@ public class MenuPrincipal extends Estado {
         menu.append("2. Radio\n");
         menu.append("3. Personal Audio\n");
         menu.append("4. Productivity\n");
-        menu.append("0. SystemOff\n");
+        menu.append("-1. Sleep mode (Press at any time) \n");
         
         return menu.toString();
     }

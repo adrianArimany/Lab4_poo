@@ -19,11 +19,10 @@ public class App {
                 int action = Integer.parseInt(sc.nextLine());
                 mEstados.transition(action);
             } else {
-                System.out.println("System is off, want to turn it back on? (1-yes, 0-no)");
-                int action = Integer.parseInt(sc.nextLine());
-                if (action == 1) {
-                    mEstados.setSystemOn(true);
-                }
+                System.out.println("Press any key to turn on the system.");
+                sc.nextLine();
+                mEstados.setSystemOn(true);
+                
             }
         }
     } finally {

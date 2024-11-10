@@ -1,5 +1,9 @@
 package com.example.Estados.Radio; 
+import java.util.HashMap;
+import java.util.List;
+
 import com.example.Estados.Estado;
+import com.example.Estados.MenuPrincipal.MenuPrincipal;
 
 /**
  * This class represents the Radio state.
@@ -7,10 +11,14 @@ import com.example.Estados.Estado;
  * 
  */
 public class EstadoRadio extends Estado implements IRadio{
+    float station = 90;
+    HashMap<String, Float> stationName;
+
 
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();
+        menu.append("Current Station: " + stationName + "\n" + "\n");
         menu.append("1. FM\n");
         menu.append("2. AM\n");
         menu.append("3. Load Favorites \n");
@@ -24,8 +32,28 @@ public class EstadoRadio extends Estado implements IRadio{
 
     @Override
     public Estado transition(int action) {
-        // Implement the logic for the transition method here
-        return null; // You should return the next state based on the action
+        switch (action) {
+            case 1:
+                System.out.println(cambiarFM());
+                return this;
+            case 2:
+                System.out.println(cambiarAM());
+                return this;
+            case 4:
+                System.out.println(cambiarCanalArriba());
+                return this;
+            case 5:
+                System.out.println(cambiarCanalAbajo());
+                return this;
+            case 6:
+                System.out.println(agregarFavoritas());
+                return this;
+            case 0:
+                return new MenuPrincipal();
+                    
+            default:
+                return this;
+        }
     }
 
 
@@ -35,14 +63,14 @@ public class EstadoRadio extends Estado implements IRadio{
     
     @Override
     public String cambiarCanalArriba() {
-        // Implement the logic for changing the channel up
-        return "Channel changed up";
+        station = station + 0.5f;
+        return "Current Station at: " + station;
     }
 
     @Override 
     public String cambiarCanalAbajo() {
-        // Implement the logic for changing the channel down
-        return "Channel changed down";
+        station = station - 0.5f;
+        return "Current Staton at: " + station;
     }
 
     @Override
