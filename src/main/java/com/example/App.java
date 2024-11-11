@@ -8,26 +8,31 @@ import com.example.Estados.ManejadorDeEstados;
  *
  */
 public class App {
+    private static boolean running = true; 
 
     public static void main(String[] args) {
         ManejadorDeEstados mEstados = new ManejadorDeEstados();
         Scanner sc = new Scanner(System.in);
-        try {
-        while (true) {
-            if (mEstados.isSystemOn()) {
-                System.out.println(mEstados.showMenu());
-                int action = Integer.parseInt(sc.nextLine());
-                mEstados.transition(action);
-            } else {
-                System.out.println("Press any key to turn on the system.");
-                sc.nextLine();
-                mEstados.setSystemOn(true);
-                
-            }
-        }
-    } finally {
-        sc.close();
-    }
 
-}
+        try {
+            while (running) {
+                if (mEstados.isSystemOn()) {
+                    try {
+                        System.out.println(mEstados.showMenu());
+                        String input = sc.nextLine(); // Read input as a string
+                        int action = Integer.parseInt(input); // Attempt to parse it
+                        mEstados.transition(action);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error: You must enter a valid integer.");
+                    }
+                } else {
+                    System.out.println("Press any key to turn on the system.");
+                    sc.nextLine();
+                    mEstados.setSystemOn(true);
+                }
+            }
+        } finally {
+            sc.close();
+        }
+    }
 }
