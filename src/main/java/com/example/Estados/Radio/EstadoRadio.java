@@ -14,8 +14,8 @@ import com.example.Estados.MenuPrincipal.MenuPrincipal;
  */
 public class EstadoRadio extends Estado implements IRadio{
     private float station = 90.0f;
-    private RadioData radioData;
-    private Map<Float, String> stationMap;
+    private final RadioData radioData;
+    private final Map<Float, String> stationMap;
     private final Map<Float, String> favoriteStations;    
 
     public EstadoRadio() {
@@ -111,13 +111,11 @@ public class EstadoRadio extends Estado implements IRadio{
 
     @Override
     public String cambiarAM() {
-        // Implement the logic for switching to AM
         return "Switched to AM";
     }
 
     @Override
     public String cambiarFM() {
-        // Implement the logic for switching to FM
         return "Switched to FM";
     } 
 

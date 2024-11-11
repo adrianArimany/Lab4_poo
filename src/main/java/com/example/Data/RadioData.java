@@ -11,6 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.FileReader;
 
+/**
+ * This class handles the management of the data for the radio interface, including the station list and favorite stations.
+ * 
+ * 
+ */
 
 public class RadioData {
     private static final Logger logger = Logger.getLogger(RadioData.class.getName());
