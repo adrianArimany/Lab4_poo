@@ -17,8 +17,8 @@ public class EstadoProductivity extends Estado implements IProductivity {
 
     /**
      * @param tripData is an instance of TripData class.
-     * @param tripMap is an instance of Map<Integer, String> class.
-     * @param currentTrip is an instance of String class.
+     * @param tripMap looks for the trip from the tripData.
+     * @param currentTrip is the current trip the user is on.
      */
     public EstadoProductivity() {
         this.tripData = new TripData();
