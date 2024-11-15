@@ -15,7 +15,7 @@ public class EstadoClimatizacion extends Estado implements IClimatizacion {
     private final String[] configAC = {"Off", "On"};
     private boolean isACOn = false;
     private int currentAC = 0; //starts as off
-    private int currentTemperature = 6; //set defualt Air conditioner to 0 Celcius.
+    private int currentTemperature = 6; //set defualt Air conditioner to 0 Celcius (check the json file: temperatures.json, to see which index has the 0 celcius).
     private TemperatueData temperatueData;
     private Map<Integer, String> temperatureMap; 
     
