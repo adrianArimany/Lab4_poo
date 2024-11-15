@@ -1,15 +1,26 @@
 package com.example;
 import java.util.Scanner;
+
 import com.example.Estados.ManejadorDeEstados;
 
 /**
- * This is LAB -4 _ Adrian Arimany - 211063
+ * @Title LAB4 - Polimorfismo a través de Interfaces
+ * @version 1.0
+ * @Author Adrian Arimany
+ * @Date 14/12/2024
  * 
- *
  */
 public class App {
     private static boolean running = true; 
 
+/**
+ * The main method is the entry point of the application, responsible for managing
+ * the system's state transitions. It initializes the state manager and a scanner
+ * for user input. The application continuously checks if the system is on and
+ * displays the current menu, allowing the user to input actions to transition
+ * between states. If the system is off, it prompts the user to turn it on.
+ * Handles invalid input by catching NumberFormatException.
+ */
     public static void main(String[] args) {
         ManejadorDeEstados mEstados = new ManejadorDeEstados();
         Scanner sc = new Scanner(System.in);
@@ -19,8 +30,8 @@ public class App {
                 if (mEstados.isSystemOn()) {
                     try {
                         System.out.println(mEstados.showMenu());
-                        String input = sc.nextLine(); // Read input as a string
-                        int action = Integer.parseInt(input); // Attempt to parse it
+                        String input = sc.nextLine();
+                        int action = Integer.parseInt(input);
                         mEstados.transition(action);
                     } catch (NumberFormatException e) {
                         System.out.println("Error: You must enter a valid integer.");

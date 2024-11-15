@@ -13,18 +13,23 @@ import com.example.Estados.MenuPrincipal.MenuPrincipal;
  * 
  */
 public class EstadoRadio extends Estado implements IRadio{
-    private float station = 90.0f;
-    private final RadioData radioData;
+    private float station = 90.0f; // Default station
+    private final RadioData radioData; 
     private final Map<Float, String> stationMap;
     private final Map<Float, String> favoriteStations;    
 
+    
     public EstadoRadio() {
-        // Initialize RadioData and load station map
         this.radioData = new RadioData();
         this.stationMap = radioData.getStationMap();
         this.favoriteStations = radioData.getFavoriteStations();
     }
 
+    /**
+     * This method generates a string of the menu options for the radio state.
+     * 
+     * @return A string of the menu options.
+     */
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();
@@ -42,6 +47,25 @@ public class EstadoRadio extends Estado implements IRadio{
         return menu.toString();
     }
 
+/**
+ * Handles the transition of the radio state based on the given action.
+ * 
+ * @param action the action to be performed, which determines the transition.
+ *               Possible values are:
+ *               1 - Switch to FM,
+ *               2 - Switch to AM,
+ *               3 - Load favorite stations,
+ *               4 - Increase frequency by 0.5,
+ *               5 - Decrease frequency by 0.5,
+ *               6 - Add current station to favorites,
+ *               0 - Return to the main menu.
+ * 
+ * @return the current state after performing the action. If the action is invalid,
+ *         it will print an error message and remain in the current state.
+ * 
+ * @throws InputMismatchException if the input is not a valid number.
+ * @throws Exception for any unexpected errors that occur during the transition.
+ */
     @Override
     public Estado transition(int action) {
         do {
@@ -87,6 +111,14 @@ public class EstadoRadio extends Estado implements IRadio{
 
 
     
+    /**
+     * Increases the current station frequency by 0.5.
+     * 
+     * If a station is available at the new frequency, it will switch to that station.
+     * Otherwise, it will print an error message and remain in the current station.
+     * 
+     * @return a message indicating the result of the action.
+     */
     @Override
     public String cambiarCanalArriba() {
         float newStation = station + 0.5f;
@@ -98,6 +130,14 @@ public class EstadoRadio extends Estado implements IRadio{
         }
     }
 
+    /**
+     * Decreases the current station frequency by 0.5.
+     * 
+     * If a station is available at the new frequency, it will switch to that station.
+     * Otherwise, it will print an error message and remain in the current station.
+     * 
+     * @return a message indicating the result of the action.
+     */
     @Override
     public String cambiarCanalAbajo() {
         float newStation = station - 0.5f;
@@ -109,16 +149,36 @@ public class EstadoRadio extends Estado implements IRadio{
         }
     }
 
+    /**
+     * Switches the radio to the AM frequency band.
+     * 
+     * @return a message indicating that the radio has been switched to AM.
+     */
     @Override
     public String cambiarAM() {
         return "Switched to AM";
     }
 
+    /**
+    * Switches the radio to the FM frequency band.
+    * 
+    * @return a message indicating that the radio has been switched to FM.
+    */
     @Override
     public String cambiarFM() {
         return "Switched to FM";
     } 
 
+    /**
+     * Allows the user to select a favorite station from their list of favorites.
+     * 
+     * If the user does not have any favorite stations, it will print an error message.
+     * 
+     * Otherwise, it will show a list of the user's favorite stations and prompt the user
+     * to select one. It will then switch the radio to the selected station.
+     * 
+     * @return a message indicating the result of the action.
+     */
     @Override
     public String elejirFavoritas() {
         if (favoriteStations == null || favoriteStations.isEmpty()) {
@@ -158,6 +218,19 @@ public class EstadoRadio extends Estado implements IRadio{
         } 
     }
 
+    /**
+     * Adds the current station to the user's list of favorite stations.
+     * 
+     * If the user already has 50 favorite stations, it will print an error message.
+     * 
+     * If the current station is already in the user's list of favorite stations, it
+     * will print an error message.
+     * 
+     * Otherwise, it will add the current station to the user's list of favorite stations
+     * and save the changes to the JSON file.
+     * 
+     * @return a message indicating the result of the action.
+     */
     @Override
     public String agregarFavoritas() {
         if (favoriteStations.size() >= 50) {

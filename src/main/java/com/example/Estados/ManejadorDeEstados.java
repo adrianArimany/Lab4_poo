@@ -2,6 +2,9 @@ package com.example.Estados;
 
 import com.example.Estados.MenuPrincipal.MenuPrincipal;
 
+/**
+ * ManejadorDeEstados  handles the state transitions and the current state of the system.
+ */
 public class ManejadorDeEstados {
     Estado currEstado;
     boolean systemOn = false;
