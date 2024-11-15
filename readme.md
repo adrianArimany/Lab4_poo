@@ -13,6 +13,12 @@ The Design Analysis and UML and other diagrams can be found in /root/Analysis/..
 
 Highly recomend to have installed drawio in your Integrated Development Environment (IDE).
 
+## IMPORTANT!!!
+
+The system is meant not to close on its own, since is tecnically a car radio, so to fully turn off the system please use the following key-command in terminal:
+```bash
+CRLT + C
+```
 
 ## Configurations:
 1. Have version: [java version 21](https://www.oracle.com/java/technologies/downloads/) (If you don't have java 21 you can't run this program)
