@@ -40,7 +40,7 @@ public class ManejadorDeEstados {
     /**
     * Handles the state transition based on the given action.
     * 
-    * If the action is -1, the system will be turned off. For any other action,
+    * If the action is -1, the system will enter sleep mode. For any other action,
     * it will transition to the corresponding state as determined by the current
     * state's transition method.
     * 

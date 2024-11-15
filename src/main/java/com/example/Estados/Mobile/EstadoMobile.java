@@ -1,5 +1,6 @@
 package com.example.Estados.Mobile;
 
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -73,35 +74,52 @@ public class EstadoMobile extends Estado implements IMobile {
     */
     @Override
     public Estado transition(int action) {
-        switch (action) {
-            case 1:
-                System.out.println(connectarTelefono());
-                return this;
-            case 2:
-                System.out.println(desconectarTelefono());
-                return this;
-            case 3: 
-                System.out.println(mostrarListaContactos());
-                return this;
-            case 4:
-            //This might not be the "most" efficient approach, but it does the job.  
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Enter the index of the contact to call: ");
-                int index = scanner.nextInt();
-                System.out.println(llamarContacto(index));
-                return this;
-            case 5:
-                System.out.println(terminarLlamada());
-                return this;
-            case 6:
-                System.out.println(cambiarAuricualares());
-                return this;
-            case 0:
-                return new MenuPrincipal();
-            default:
-                return this;
+        try {
+            switch (action) {
+                case 1:
+                    System.out.println(connectarTelefono());
+                    return this;
+                case 2:
+                    System.out.println(desconectarTelefono());
+                    return this;
+                case 3: 
+                    System.out.println(mostrarListaContactos());
+                    return this;
+                case 4: {
+                    @SuppressWarnings("resource")
+                    //If the scanner is closed then the program will never be able to detect this input; so the easiest approach it to suppress the warning
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the index of the contact to call: ");
+                    int index = scanner.nextInt();
+                    if (index < 0 || index >= contactMap.size()) {
+                        System.out.println("Invalid index. Please try again.");
+                    } else {
+                        System.out.println(llamarContacto(index));
+                    }
+                    return this;
+                }
+                case 5:
+                    System.out.println(terminarLlamada());
+                    return this;
+                case 6:
+                    System.out.println(cambiarAuricualares());
+                    return this;
+                case 0:
+                    return new MenuPrincipal();
+                default:
+                    System.out.println("Invalid action. Please try again.");
+                    return this;
+            }
+        } catch (NullPointerException e) {
+            System.err.println("NullPointerException: " + e.getMessage());
+            return this;
+        } catch (InputMismatchException e) {
+            System.err.println("InputMismatchException: " + e.getMessage());
+            return this;
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
+            return this;
         }
-        
     }
 
     /**

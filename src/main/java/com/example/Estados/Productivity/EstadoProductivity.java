@@ -1,4 +1,5 @@
 package com.example.Estados.Productivity;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -58,20 +59,34 @@ public class EstadoProductivity extends Estado implements IProductivity {
      */
     @Override
     public Estado transition(int action) {
-        switch (action) {
-            case 1:
-            for (Map.Entry<Integer, String> entry : tripMap.entrySet()) {
-                System.out.println("Index " + entry.getKey() + ": " + entry.getValue());
+        try {
+            switch (action) {
+                case 1:
+                    if (tripMap == null) {
+                        throw new NullPointerException("Enter  a valid trip index");
+                    }
+                    for (Map.Entry<Integer, String> entry : tripMap.entrySet()) {
+                        System.out.println("Index " + entry.getKey() + ": " + entry.getValue());
+                    }
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the index to start the trip: \n");
+                    int index = scanner.nextInt();
+                    System.out.println(startTrip(index));
+                    return this;
+                case 0:
+                    return new MenuPrincipal();
+                default:
+                    return this;
             }
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Enter the index to start the trip: \n");
-                int index = scanner.nextInt();
-                System.out.println(startTrip(index));
-                return this;
-            case 0:
-                return new MenuPrincipal();
-            default:
-                return this;
+        } catch (NullPointerException e) {
+            System.err.println("NullPointerException: " + e.getMessage());
+            return this;
+        } catch (InputMismatchException e) {
+            System.err.println("InputMismatchException: " + e.getMessage());
+            return this;
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
+            return this;
         }
     }
 
