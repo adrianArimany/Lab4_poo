@@ -1,12 +1,12 @@
 package com.example.Estados.Mobile;
 
 public interface IMobile {
-    public String llamarContacto(); 
+    public String connectarTelefono();
+    public String desconectarTelefono();
+    public String llamarContacto(int index); 
     public String mostrarListaContactos();
     public String terminarLlamada();
-    // Cambiar a speaker o auriculares
     public String cambiarAuricualares();
-    public String epezarLlamada();
     
     
 }

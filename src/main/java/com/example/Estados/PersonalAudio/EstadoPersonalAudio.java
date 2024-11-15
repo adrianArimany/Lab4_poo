@@ -30,7 +30,7 @@ public class EstadoPersonalAudio extends Estado implements IPersonalAudio{
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();
-        menu.append("===== RADIO MENU =====\n");
+        menu.append("===== Personal Audio MENU =====\n");
         menu.append("Current Mode: ").append(currentMode.name()).append("\n\n");
         menu.append("1. Switch Mode\n");
         menu.append("2. Move up song\n");

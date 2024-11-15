@@ -44,7 +44,6 @@ public class PersonalAudioData {
             Map<Integer, String> loadedMap = gson.fromJson(reader, type);
             cdMap.clear();
             cdMap.putAll(loadedMap);
-            logger.log(Level.INFO, "CD song data loaded from: {0}", CD_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error loading data from JSON", e);
         }
@@ -53,7 +52,6 @@ public class PersonalAudioData {
             Map<Integer, String> loadedMap = gson.fromJson(reader, type);
             mp3Map.clear();
             mp3Map.putAll(loadedMap);
-            logger.log(Level.INFO, "MP3 song data loaded from: {0}", MP3_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error loading data from JSON", e);
         }
@@ -62,7 +60,6 @@ public class PersonalAudioData {
             Map<Integer, String> loadedMap = gson.fromJson(reader, type);
             spotifyMap.clear();
             spotifyMap.putAll(loadedMap);
-            logger.log(Level.INFO, "Spotify song data loaded from: {0}", SPOTIFY_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error loading data from JSON", e);
         }
@@ -71,19 +68,16 @@ public class PersonalAudioData {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter(CD_PATH)) {
             gson.toJson(cdMap, writer);
-            logger.log(Level.INFO, "CD song data saved to: {0}", CD_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error saving data to JSON", e);
         }
         try (FileWriter writer = new FileWriter(MP3_PATH)) {
             gson.toJson(mp3Map, writer);
-            logger.log(Level.INFO, "MP3 song data saved to: {0}", MP3_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error saving data to JSON", e);
         }
         try (FileWriter writer = new FileWriter(SPOTIFY_PATH)) {
             gson.toJson(spotifyMap, writer);
-            logger.log(Level.INFO, "Spotify song data saved to: {0}", SPOTIFY_PATH);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error saving data to JSON", e);
         }
