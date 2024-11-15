@@ -5,17 +5,29 @@ import java.util.Map;
 import com.example.Data.PersonalAudioData;
 import com.example.Estados.Estado;
 import com.example.Estados.MenuPrincipal.MenuPrincipal;
-
+/**
+ * Note: This class handles the Personal Audio state.
+ * It handles the different modes that the user can listen to.
+ * 
+ * @apiNote This class implements the IPersonalAudio interface.
+ */
 public class EstadoPersonalAudio extends Estado implements IPersonalAudio{
 
-    private enum Mode { CD, MP3, SPOTIFY }
-    private Mode currentMode;
+    private enum Mode { CD, MP3, SPOTIFY } 
+    private Mode currentMode; 
     private PersonalAudioData audioData;
     private Map<Integer, String> currentMap;
     private Map<Mode, Integer> modeIndices;
-    private int currentIndex;
+    private int currentIndex; 
 
-
+    /**
+     * Constructor for the Personal Audio State
+    * @param currentmode the current mode that the user is listening to
+    * @param personalAudioData the data of the personal audio
+    * @param currentMap the map of the current mode
+    * @param modeIndices the indices of the modes
+    * @param currentIndex the index of the current song
+     */
     public EstadoPersonalAudio() {
         this.audioData = new PersonalAudioData();
         this.currentMode = Mode.CD;
@@ -27,6 +39,11 @@ public class EstadoPersonalAudio extends Estado implements IPersonalAudio{
         this.currentIndex = modeIndices.get(currentMode);
     }
 
+    /**
+     * This method generates a string of the menu options for the personal audio state.
+     * 
+     * @return A string of the menu options.
+     */
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();

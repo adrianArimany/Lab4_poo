@@ -6,8 +6,19 @@ import com.example.Estados.PersonalAudio.EstadoPersonalAudio;
 import com.example.Estados.Productivity.EstadoProductivity;
 import com.example.Estados.Radio.EstadoRadio;
 
+/**
+ * The MenuPrincipal class represents the main menu of the system.
+ * It provides options for Mobile, Radio, Personal Audio, Productivity, and Sleep mode.
+ * 
+ */
 public class MenuPrincipal extends Estado {
 
+    /**
+    * Generates a string of the menu options for the main menu.
+    * 
+    * @return A string of the menu options, including options for Mobile,
+    * Radio, Personal Audio, Productivity, and Sleep mode.
+    */
     @Override
     public String showMenu() {
         StringBuilder menu = new StringBuilder();
@@ -20,6 +31,20 @@ public class MenuPrincipal extends Estado {
         return menu.toString();
     }
 
+    /**
+     * Handles the transition of the main menu based on the given action.
+     * 
+     * @param action the action to be performed, which determines the transition.
+     *               Possible values are:
+     *               1 - Transition to mobile mode.
+     *               2 - Transition to radio mode.
+     *               3 - Transition to personal audio mode.
+     *               4 - Transition to productivity mode.
+     *               -1 - Transition to sleep mode. This can be done at any time.
+     * 
+     * @return the new state after performing the action. If the action is invalid,
+     *         it will print an error message and remain in the current state.
+     */
     @Override
     public Estado transition(int action) {
        switch (action) {

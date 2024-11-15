@@ -10,7 +10,7 @@ import com.example.Estados.MenuPrincipal.MenuPrincipal;
 /**
  * This class represents the Radio state.
  * It handles the different stations that the user can listen to.
- * 
+ * @apiNote This class implements the IRadio interface.
  */
 public class EstadoRadio extends Estado implements IRadio{
     private float station = 90.0f; // Default station
@@ -18,7 +18,13 @@ public class EstadoRadio extends Estado implements IRadio{
     private final Map<Float, String> stationMap;
     private final Map<Float, String> favoriteStations;    
 
-    
+    /**
+     * Constructor for the Radio state.
+     * @param station The current station of the radio.
+     * @param radioData The data manager for the radio interface.
+     * @param stationMap The map of available stations.
+     * @param favoriteStations The map of favorite stations.
+     */
     public EstadoRadio() {
         this.radioData = new RadioData();
         this.stationMap = radioData.getStationMap();
