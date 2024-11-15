@@ -8,7 +8,7 @@ import com.example.Estados.Estado;
 import com.example.Estados.MenuPrincipal.MenuPrincipal;
 /**
  * This class represents the mobile state of the system.
- * It handles the different actions that the user can perform. 
+ * It handles the use of the user's phone to make calls. 
  * 
  * @note the user has to connect the phone before using any other method, (this will be propmpted in the program.)
  * 
