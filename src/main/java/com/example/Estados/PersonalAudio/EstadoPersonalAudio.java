@@ -22,8 +22,9 @@ public class EstadoPersonalAudio extends Estado implements IPersonalAudio{
 
     /**
      * Constructor for the Personal Audio State
+     * @param currentMode the current mode that the user is listening to
+     * @param audioData the data of the personal audio
     * @param currentmode the current mode that the user is listening to
-    * @param personalAudioData the data of the personal audio
     * @param currentMap the map of the current mode
     * @param modeIndices the indices of the modes
     * @param currentIndex the index of the current song
