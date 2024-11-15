@@ -49,7 +49,7 @@ public class RadioData {
         }
     }
 
-    private void loadFavoritesFromJson() {
+    public void loadFavoritesFromJson() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(stationFavorite)) {
             java.lang.reflect.Type type = new TypeToken<Map<Float, String>>() {}.getType();
