@@ -1,6 +1,7 @@
 package com.example.Estados.MenuPrincipal;
 
 import com.example.Estados.Estado;
+import com.example.Estados.Climatizacion.EstadoClimatizacion;
 import com.example.Estados.Mobile.EstadoMobile;
 import com.example.Estados.PersonalAudio.EstadoPersonalAudio;
 import com.example.Estados.Productivity.EstadoProductivity;
@@ -26,6 +27,7 @@ public class MenuPrincipal extends Estado {
         menu.append("2. Radio\n");
         menu.append("3. Personal Audio\n");
         menu.append("4. Productivity\n");
+        menu.append("5. Change Climatization from car\n");
         menu.append("-1. Sleep mode (Press at any time) \n");
         
         return menu.toString();
@@ -56,6 +58,8 @@ public class MenuPrincipal extends Estado {
             return new EstadoPersonalAudio();
         case 4:
             return new EstadoProductivity();
+        case 5:
+            return new EstadoClimatizacion();
         default:
             return this;
        }
